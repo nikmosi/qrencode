@@ -46,6 +46,7 @@
             packages = with pkgs; [
               python312
               uv
+              pdm
             ];
             buildInputs = self.checks.${system}.pre-commit-check.enabledPackages;
             shellHook = ''
