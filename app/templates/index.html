@@ -7,10 +7,32 @@
 </head>
 <body>
     <h1>Enter Text to Encode</h1>
-    <form action="/encode" method="post">
+    <form id="qr-form" action="/encode" method="post">
         <input type="text" name="data" required>
         <button type="submit">Encode</button>
     </form>
-    <img id="qr-image" src="" alt="QR Code">
+    <img id="qr-image" src="" alt="QR Code" style="display:none;">
+
+    <script>
+        document.getElementById('qr-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+            const response = await fetch('/encode', {
+                method: 'POST',
+                body: formData
+            });
+
+            if (response.ok) {
+                const blob = await response.blob();
+                const imageUrl = URL.createObjectURL(blob);
+                const qrImage = document.getElementById('qr-image');
+                qrImage.src = imageUrl;
+                qrImage.style.display = 'block';
+            } else {
+                alert('Failed to generate QR code');
+            }
+        });
+    </script>
 </body>
 </html>
