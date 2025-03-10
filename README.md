@@ -1,5 +1,7 @@
 # qrecode app
-app for encoding text
+![1010101010101](./examples/ex01.png)
+
+app for encoding text.
 
 # How to run
 1. run build
@@ -11,3 +13,4 @@ docker compose up --build
 
 # TODO
 - [ ] improve styles
+- [ ] extract qrecoding in other process
