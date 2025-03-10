@@ -1,0 +1,48 @@
+# Ignore Python cache and virtual environment files
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Ignore development and build files
+build/
+dist/
+*.egg-info/
+*.egg
+.coverage
+.tox/
+.nox/
+.pytest_cache/
+.mypy_cache/
+
+# Ignore IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+
+# Ignore system and hidden files
+.DS_Store
+Thumbs.db
+
+# Ignore logs and local data
+logs/
+*.log
+*.sqlite3
+
+# Ignore Docker-related files (except Dockerfile and docker-compose.yml)
+docker-compose.override.yml
+docker-compose.prod.yml
+
+# Ignore flake and Nix files (if not needed in the container)
+flake.lock
+flake.nix
