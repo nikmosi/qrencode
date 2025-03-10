@@ -1,20 +1,34 @@
+from pathlib import Path
+
 from litestar import Litestar, get
+from litestar.contrib.jinja import JinjaTemplateEngine
 from litestar.openapi.config import OpenAPIConfig
 from litestar.openapi.plugins import SwaggerRenderPlugin
+from litestar.response import Template
+from litestar.template.config import TemplateConfig
 
 
 @get("/")
+def home() -> Template:
+    return Template(template_name="index.html")
+
+
+@get("/live_status")
 async def hello_world() -> str:
     return "Hello, world!"
 
 
 app = Litestar(
-    [hello_world],
+    [hello_world, home],
     openapi_config=OpenAPIConfig(
         title="My API",
         description="This is the description of my API",
         render_plugins=[SwaggerRenderPlugin()],
         version="0.1.0",
         path="/docs",
+    ),
+    template_config=TemplateConfig(
+        directory=Path("templates"),
+        engine=JinjaTemplateEngine,
     ),
 )
