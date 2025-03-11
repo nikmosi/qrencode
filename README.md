@@ -14,3 +14,4 @@ docker compose up --build
 # TODO
 - [ ] improve styles
 - [ ] extract qrecoding in other process
+- [ ] add htmx
