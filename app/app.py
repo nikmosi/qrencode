@@ -6,7 +6,9 @@ from litestar.openapi.config import OpenAPIConfig
 from litestar.openapi.plugins import SwaggerRenderPlugin
 from litestar.response import Template
 from litestar.template.config import TemplateConfig
+from litestar.di import Provide
 
+from async_executor import AsyncProcessExecutor
 from domain.encode.controller import EncodeController
 
 
@@ -18,6 +20,10 @@ def home() -> Template:
 @get("/live_status")
 async def hello_world() -> str:
     return "Hello, world!"
+
+
+def provide_executor() -> AsyncProcessExecutor:
+    return AsyncProcessExecutor(max_workers=8)
 
 
 app = Litestar(
@@ -33,4 +39,5 @@ app = Litestar(
         directory=Path("templates"),
         engine=JinjaTemplateEngine,
     ),
+    dependencies={"process_executor": Provide(provide_executor)},
 )
