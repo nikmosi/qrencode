@@ -7,6 +7,8 @@ from litestar.openapi.plugins import SwaggerRenderPlugin
 from litestar.response import Template
 from litestar.template.config import TemplateConfig
 
+from domain.encode.controller import EncodeController
+
 
 @get("/")
 def home() -> Template:
@@ -19,7 +21,7 @@ async def hello_world() -> str:
 
 
 app = Litestar(
-    [hello_world, home],
+    [hello_world, home, EncodeController],
     openapi_config=OpenAPIConfig(
         title="My API",
         description="This is the description of my API",
