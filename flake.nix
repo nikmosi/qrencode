@@ -21,7 +21,6 @@
         pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
           src = ./.;
           hooks = {
-            isort.enable = true;
             ruff.enable = true;
             ruff-format.enable = true;
             end-of-file-fixer.enable = true;
@@ -29,7 +28,10 @@
             trim-trailing-whitespace.enable = true;
             check-yaml.enable = true;
             fix-byte-order-marker.enable = true;
-            trufflehog.enable = true;
+            trufflehog = {
+              enable = true;
+              stages = [ "pre-push" ];
+            };
           };
         };
       });
