@@ -13,7 +13,7 @@ from domain.encode.controller import EncodeController
 
 
 @get("/")
-def home() -> Template:
+async def home() -> Template:
     return Template(template_name="index.html")
 
 
