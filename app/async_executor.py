@@ -14,5 +14,5 @@ class AsyncProcessExecutor:
         )
 
 
-def _run_helper(func, args, kwargs):
+def _run_helper(func: Callable[..., Any], args: Any, kwargs: Any) -> Any:
     return func(*args, **kwargs)
