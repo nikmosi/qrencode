@@ -1,15 +1,14 @@
 from pathlib import Path
 
+from async_executor import AsyncProcessExecutor
+from domain.encode.controller import EncodeController
 from litestar import Litestar, get
 from litestar.contrib.jinja import JinjaTemplateEngine
+from litestar.di import Provide
 from litestar.openapi.config import OpenAPIConfig
 from litestar.openapi.plugins import SwaggerRenderPlugin
 from litestar.response import Template
 from litestar.template.config import TemplateConfig
-from litestar.di import Provide
-
-from async_executor import AsyncProcessExecutor
-from domain.encode.controller import EncodeController
 
 
 @get("/")

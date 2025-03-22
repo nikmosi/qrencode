@@ -1,10 +1,9 @@
 from typing import Any
 
-from litestar import Controller, Request, Response, post
-from litestar.di import Provide
-
 from domain.encode.deps import provide_encode_service
 from domain.encode.services import EncodeService
+from litestar import Controller, Request, Response, post
+from litestar.di import Provide
 
 
 class EncodeController(Controller):
