@@ -28,6 +28,7 @@
             trim-trailing-whitespace.enable = true;
             check-yaml.enable = true;
             fix-byte-order-marker.enable = true;
+            hadolint.enable = true;
             trufflehog = {
               enable = true;
               stages = [ "pre-push" ];
