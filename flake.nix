@@ -46,6 +46,7 @@
         in
         {
           default = nixpkgs.legacyPackages.${system}.mkShell {
+            name = "qrencode";
             packages = with pkgs; [
               python312
               uv
