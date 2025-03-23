@@ -5,7 +5,7 @@ FROM python:3.12.8-slim
 WORKDIR /app
 
 # Install uv (a fast Python package installer)
-RUN pip install uv
+RUN pip install "uv==0.4.30"
 
 # Copy the project files into the container
 COPY ./app /app
